@@ -22,8 +22,8 @@ wakati_text = ' '.join(sharing_text(text))    #リストを半角スペースご
 print(wakati_text)
 
 message_list = [
-    ' '.join(sharing_text("私達はラーメンがとても大好きです。")),
-    ' '.join(sharing_text("私達は蕎麦がとても大好きです。"))
+    ' '.join(sharing_text("高専や理系の勉強，ものづくりに興味はありませんか？函館高専では，『一日高専生』を体験できる「オープンキャンパス」を開催します。")),
+    ' '.join(sharing_text("高専でどのような勉強をしているか，体験して自分の目で確かめられるチャンスです"))
 ]
 
 docs = np.array(message_list)
