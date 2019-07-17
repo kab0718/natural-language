@@ -1,6 +1,6 @@
 import MeCab
 import numpy as np
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 
 def sharing_text(text):
     tagger = MeCab.Tagger("-Owakati -d C:\mecab-ipadic-neologd")
@@ -17,10 +17,6 @@ def sharing_text(text):
 
     return words    #名詞だけのリストを返す
 
-text = "令和元年硬貨と天皇陛下即位の記念硬貨の打ち初め式が、大阪市北区の造幣局で行われました"
-wakati_text = ' '.join(sharing_text(text))    #リストを半角スペースごとに結合
-print(wakati_text)
-
 message_list = [
     ' '.join(sharing_text("高専や理系の勉強，ものづくりに興味はありませんか？函館高専では，『一日高専生』を体験できる「オープンキャンパス」を開催します。")),
     ' '.join(sharing_text("高専でどのような勉強をしているか，体験して自分の目で確かめられるチャンスです"))
@@ -35,3 +31,8 @@ print(bags.toarray())   #特徴量ベクトルに変換したものを出力
 
 features = count.get_feature_names()
 print(features)
+
+tfidf = TfidfTransformer(use_idf=True, norm='l2', smooth_idf=True)
+np.set_printoptions(precision=2)
+tf_idf = tfidf.fit_transform(bags)
+print(tf_idf.toarray())

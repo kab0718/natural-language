@@ -1,6 +1,6 @@
 import MeCab
 import numpy as np
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 
 def split_text_noun(text):
     tagger = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd")
@@ -18,10 +18,6 @@ def split_text_noun(text):
         node = node.next    #次のnodeに移る
 
     return words    #名詞だけのリストを返す
-
-text = "令和元年硬貨と天皇陛下即位の記念硬貨の打ち初め式が、大阪市北区の造幣局で行われました"
-split_text = ' '.join(split_text_noun(text))    #リストを半角スペースごとに結合
-print(split_text)
 
 message_list = [
     ' '.join(split_text_noun("高専や理系の勉強，ものづくりに興味はありませんか？函館高専では，『一日高専生』を体験できる「オープンキャンパス」を開催します。")),
@@ -42,3 +38,9 @@ print(bags.toarray())   #特徴量ベクトルに変換したものを出力
 
 features = count.get_feature_names()    #ベクトルに変換した単語をリスト化
 print(features)
+
+tfidf = TfidfTransformer(use_idf=True, norm='l2', smooth_idf=True)  #TfidfTransformerでtf-idfを計算してくれる
+#TfidfTransformerの仕様については https://akamist.com/blog/archives/2849 参照
+np.set_printoptions(precision=2)    #有効数字二桁に設定
+tf_idf = tfidf.fit_transform(bags)
+print(tf_idf.toarray())     #出てきた値を配列にして出力
