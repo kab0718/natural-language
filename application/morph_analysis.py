@@ -1,6 +1,10 @@
 import MeCab
 import numpy as np
+import pandas as pd
+import openpyxl
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+
+np.set_printoptions(threshold=np.inf)
 
 def split_text_noun(text):
     tagger = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd")
@@ -19,9 +23,18 @@ def split_text_noun(text):
 
     return words    #名詞だけのリストを返す
 
+def file_open():
+    test_data = open("ningen_shikkaku_syuki2.txt", "r")
+
+    contents = test_data.read()
+    test_data.close()
+
+    return contents
+
 message_list = [
-    ' '.join(split_text_noun("高専や理系の勉強，ものづくりに興味はありませんか？函館高専では，『一日高専生』を体験できる「オープンキャンパス」を開催します。")),
-    ' '.join(split_text_noun("高専でどのような勉強をしているか，体験して自分の目で確かめられるチャンスです"))
+    #' '.join(split_text_noun("高専や理系の勉強，ものづくりに興味はありませんか？函館高専では，『一日高専生』を体験できる「オープンキャンパス」を開催します。")),
+    #' '.join(split_text_noun("高専でどのような勉強をしているか，体験して自分の目で確かめられるチャンスです")),
+    ' '.join(split_text_noun(file_open()))
 ]
 
 #抽出した名詞からベクトルを得る
@@ -34,7 +47,13 @@ bags = count.fit_transform(docs)
 # fit_tranceformはfitとtranceformをまとめて行っている
 # https://mathwords.net/fittransform 参照
 
-print(bags.toarray())   #特徴量ベクトルに変換したものを出力
+bags_array = []
+for b in bags.toarray():
+    for bag in b:
+        bags_array.append(bag)
+
+print(bags_array)   #特徴量ベクトルに変換したものを出力
+
 
 features = count.get_feature_names()    #ベクトルに変換した単語をリスト化
 print(features)
@@ -43,4 +62,18 @@ tfidf = TfidfTransformer(use_idf=True, norm='l2', smooth_idf=True)  #TfidfTransf
 #TfidfTransformerの仕様については https://akamist.com/blog/archives/2849 参照
 np.set_printoptions(precision=2)    #有効数字二桁に設定
 tf_idf = tfidf.fit_transform(bags)
-print(tf_idf.toarray())     #出てきた値を配列にして出力
+
+tf_idf_array = []
+for tf in tf_idf.toarray():
+    for idf in tf:
+        tf_idf_array.append(round(idf, 5))
+
+print(tf_idf_array)     #出てきた値を配列にして出力
+
+
+
+'''
+df = pd.DataFrame([features, bags_array, tf_idf_array])
+
+df.to_excel('data.xlsx',sheet_name='syuki2')
+'''
