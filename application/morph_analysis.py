@@ -10,7 +10,7 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 np.set_printoptions(threshold=np.inf)
 
 def split_text_noun(text):
-    tagger = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd")
+    tagger = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd\\build\mecab-ipadic-2.7.0-20070801-neologd-20190808")
 
     tagger.parse("")    #エラー回避のために空文字をパース
     node = tagger.parseToNode(text)     #最初のnodeを取得

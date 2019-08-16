@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0f7a866-7f24-48d4-ab9c-b5beff65889a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/sanshiro.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/wiki.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/morph_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/morph_analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/pwiki.model" beforeDir="false" afterPath="$PROJECT_DIR$/application/pwiki.model" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/pwiki.txt" beforeDir="false" afterPath="$PROJECT_DIR$/application/pwiki.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/wiki.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/wiki.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,22 +18,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/morph_analysis.py">
+        <entry file="file://$PROJECT_DIR$/application/wiki.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+            <state relative-caret-position="356">
+              <caret line="82" selection-start-line="82" selection-end-line="82" />
               <folding>
-                <element signature="e#0#12#0" expanded="true" />
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/wiki.py">
+        <entry file="file://$PROJECT_DIR$/application/kakezan/kakezan.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="76" column="6" selection-start-line="76" selection-start-column="6" selection-end-line="76" selection-end-column="6" />
+            <state relative-caret-position="267">
+              <caret line="113" column="22" lean-forward="true" selection-start-line="113" selection-start-column="22" selection-end-line="113" selection-end-column="22" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -42,8 +44,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/sharing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="66" selection-start-line="34" selection-start-column="66" selection-end-line="34" selection-end-column="66" />
+            <state relative-caret-position="51">
+              <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="64" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/morph_analysis.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -71,16 +85,18 @@
         <option value="$PROJECT_DIR$/application/tweet_reply.py" />
         <option value="$PROJECT_DIR$/application/config.py" />
         <option value="$PROJECT_DIR$/application/word2vec.py" />
+        <option value="$PROJECT_DIR$/application/kakezan.py" />
         <option value="$PROJECT_DIR$/application/morph_analysis.py" />
         <option value="$PROJECT_DIR$/application/wiki.py" />
+        <option value="$PROJECT_DIR$/application/kakezan/kakezan.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="675" />
     <option name="y" value="-8" />
-    <option name="width" value="1296" />
-    <option name="height" value="1000" />
+    <option name="width" value="699" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -92,13 +108,19 @@
         <subPane>
           <expand>
             <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="natural-language" type="b2602c69:ProjectViewProjectNode" />
+              <item name="natural-language" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="natural-language" type="b2602c69:ProjectViewProjectNode" />
+              <item name="natural-language" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="natural-language" type="b2602c69:ProjectViewProjectNode" />
+              <item name="natural-language" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="kakezan" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -110,7 +132,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/application" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/kakezan/info" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -122,12 +144,14 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\gakusei\PycharmProjects\test\application" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hsk4k\natural-language\application\kakezan" />
       <recent name="C:\Users\gakusei\PycharmProjects\test\application" />
       <recent name="C:\Users\gakusei\PycharmProjects\test\application\plugins" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hsk4k\natural-language\application\kakezan\info" />
+      <recent name="C:\Users\gakusei\PycharmProjects\test\application" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -142,7 +166,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.wiki">
+  <component name="RunManager" selected="Python.kakezan">
+    <configuration name="kakezan" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="test" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/application/kakezan" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/application/kakezan/kakezan.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="morph_analysis" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -233,6 +279,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.kakezan" />
         <item itemvalue="Python.wiki" />
         <item itemvalue="Python.morph_analysis" />
         <item itemvalue="Python.sharing" />
@@ -261,11 +308,21 @@
       <workItem from="1564012811297" duration="12590000" />
       <workItem from="1564103826983" duration="1215000" />
       <workItem from="1565137511677" duration="4566000" />
+      <workItem from="1565525856926" duration="1487000" />
+      <workItem from="1565528118013" duration="5909000" />
+      <workItem from="1565535857313" duration="724000" />
+      <workItem from="1565537738637" duration="2038000" />
+      <workItem from="1565542106658" duration="3924000" />
+      <workItem from="1565664103684" duration="705000" />
+      <workItem from="1565664981273" duration="977000" />
+      <workItem from="1565798132531" duration="7593000" />
+      <workItem from="1565940253329" duration="3987000" />
+      <workItem from="1565959504107" duration="15561000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50063000" />
+    <option name="totallyTimeSpent" value="92968000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -277,15 +334,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28478965" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2118003" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49919093" visible="true" weight="0.32871974" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919093" weight="0.30261138" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -293,9 +349,9 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3298731" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5008091" side_tool="true" weight="0.32871974" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32871974" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32871974" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5008091" side_tool="true" weight="0.3283582" />
+      <window_info anchor="bottom" id="Python Console" order="11" weight="0.3283582" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.49919093" visible="true" weight="0.30721965" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -308,14 +364,14 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/test$wiki.coverage" NAME="wiki Coverage Results" MODIFIED="1565142187465" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application" />
-    <SUITE FILE_PATH="coverage/test$tweet_reply.coverage" NAME="tweet_reply Coverage Results" MODIFIED="1563326717712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application" />
+    <SUITE FILE_PATH="coverage/natural_language$kakezan.coverage" NAME="kakezan Coverage Results" MODIFIED="1565973972003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application/kakezan" />
     <SUITE FILE_PATH="coverage/test$morph_analysis.coverage" NAME="morph_analysis Coverage Results" MODIFIED="1564019900747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application" />
+    <SUITE FILE_PATH="coverage/test$tweet_reply.coverage" NAME="tweet_reply Coverage Results" MODIFIED="1563326717712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application" />
+    <SUITE FILE_PATH="coverage/natural_language$morph_analysis.coverage" NAME="morph_analysis Coverage Results" MODIFIED="1565881084430" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application" />
     <SUITE FILE_PATH="coverage/test$sharing.coverage" NAME="sharing Coverage Results" MODIFIED="1564018785625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application" />
+    <SUITE FILE_PATH="coverage/natural_language$wiki.coverage" NAME="wiki Coverage Results" MODIFIED="1565958850077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/application" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/plugins/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -346,10 +402,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/kakezan/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/kakezan/info/zyuria.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/morph_analysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+        <state relative-caret-position="340">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
@@ -358,8 +423,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/sharing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="66" selection-start-line="34" selection-start-column="66" selection-end-line="34" selection-end-column="66" />
+        <state relative-caret-position="51">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="64" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
@@ -368,8 +433,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/wiki.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="76" column="6" selection-start-line="76" selection-start-column="6" selection-end-line="76" selection-end-column="6" />
+        <state relative-caret-position="356">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/kakezan/kakezan.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="113" column="22" lean-forward="true" selection-start-line="113" selection-start-column="22" selection-end-line="113" selection-end-column="22" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
