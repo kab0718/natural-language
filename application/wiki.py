@@ -46,8 +46,6 @@ keyword = ["伊藤美来", "夏川椎菜", "雨宮天",
            "駒形友梨", "上田麗奈", "小澤亜李",
            "大橋彩香", "戸松遥", "坂本真綾",
            "田村ゆかり", "中原麻衣", "名塚佳織"]
-
-
 for word in keyword:
     with request.urlopen(link + parser.quote_plus(word)) as response:
         #responseはhtmlのformatになっている
