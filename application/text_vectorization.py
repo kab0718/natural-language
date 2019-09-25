@@ -53,18 +53,43 @@ def get_tag(req_list, res_list):
 
     return tag_req_list, tag_res_list
 
+def both_get_tag(lines):
+    both_list = []
+    tag_both_list = []
+    req_id = 1
+    res_id = 1
+    for line in lines:
+        line = line.split(":")[1]
+        both_list.append(split_text_noun(line))
+    for i,list in enumerate(both_list, start=1):
+        if i % 2 == 1:
+            both = TaggedDocument(words=list, tags=["REQ" + str(req_id)])
+            req_id += 1
+        else:
+            both = TaggedDocument(words=list, tags=["RES" + str(res_id)])
+            res_id += 1
+        tag_both_list.append(both)
+
+    return tag_both_list
+
 lines = text_import("tweet.txt") #テキストファイル読み込み
-req_list, res_list = sharing(lines) #req_list[0]とres_list[0が対応している
+#req_list, res_list = sharing(lines) #req_list[0]とres_list[0が対応している
 
-tag_req_list , tag_res_list = get_tag(req_list, res_list)
+tag_both_list = both_get_tag(lines)
+#tag_req_list , tag_res_list = get_tag(req_list, res_list)
 
-req_model = Doc2Vec(documents=tag_req_list, vector_size=500, alpha=0.015, window=10, min_count=1, workers=4)
-res_model = Doc2Vec(documents=tag_res_list, vector_size=500, alpha=0.015, window=10, min_count=1, workers=4)
+#req_model = Doc2Vec(documents=tag_req_list, vector_size=300, alpha=0.005, window=10, min_count=1, workers=4)
+#res_model = Doc2Vec(documents=tag_res_list, vector_size=300, alpha=0.005, window=10, min_count=1, workers=4)
+both_model = Doc2Vec(documents=tag_both_list, vector_size=300, alpha=0.005, window=10, mincount=1, workers=4)
 
-req_model.save("req.model")
-res_model.save("res.model")
+#req_model.save("req.model")
+#res_model.save("res.model")
+both_model.save("both.model")
 
 req = Doc2Vec.load("req.model")
 res = Doc2Vec.load("res.model")
+both = Doc2Vec.load("both.model")
 
 print(res.docvecs.most_similar(0))
+print(req.docvecs.most_similar(0))
+print(both.docvecs.most_similar(0))
