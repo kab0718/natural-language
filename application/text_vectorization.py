@@ -73,23 +73,28 @@ def both_get_tag(lines):
     return tag_both_list
 
 lines = text_import("tweet.txt") #テキストファイル読み込み
-#req_list, res_list = sharing(lines) #req_list[0]とres_list[0が対応している
 
 tag_both_list = both_get_tag(lines)
-#tag_req_list , tag_res_list = get_tag(req_list, res_list)
+'''
+req_list, res_list = sharing(lines) #req_list[0]とres_list[0]が対応している
+tag_req_list , tag_res_list = get_tag(req_list, res_list)
 
-#req_model = Doc2Vec(documents=tag_req_list, vector_size=300, alpha=0.005, window=10, min_count=1, workers=4)
-#res_model = Doc2Vec(documents=tag_res_list, vector_size=300, alpha=0.005, window=10, min_count=1, workers=4)
-both_model = Doc2Vec(documents=tag_both_list, vector_size=300, alpha=0.005, window=10, mincount=1, workers=4)
+req_model = Doc2Vec(documents=tag_req_list, vector_size=100, alpha=0.0015, window=10, min_count=1, workers=4)
+req_model.save("req.model")
 
-#req_model.save("req.model")
-#res_model.save("res.model")
+res_model = Doc2Vec(documents=tag_res_list, vector_size=100, alpha=0.0015, window=10, min_count=1, workers=4)
+res_model.save("res.model")
+
+both_model = Doc2Vec(documents=tag_both_list, vector_size=200, alpha=0.015, window=18, mincount=1, workers=4)
 both_model.save("both.model")
-
+'''
 req = Doc2Vec.load("req.model")
 res = Doc2Vec.load("res.model")
 both = Doc2Vec.load("both.model")
 
-print(res.docvecs.most_similar(0))
+print(res.docvecs.most_similar(0)) #req.modelの中でres1と類似度が高い10件を表示
 print(req.docvecs.most_similar(0))
 print(both.docvecs.most_similar(0))
+
+print(both.docvecs["REQ1"]) #REQ1のベクトルを表示
+print(both.docvecs.similarity("REQ1","RES1")) #REQ1とRES1の類似度表示
