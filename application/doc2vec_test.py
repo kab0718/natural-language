@@ -11,7 +11,7 @@ print(req.docvecs.most_similar(0))
 print(both.docvecs.most_similar(0))
 
 print(both.docvecs["REQ1"]) #REQ1のベクトルを表示
-print(both.docvecs.similarity("REQ1","RES1")) #REQ1とRES1の類似度表示
+print(both.docvecs.similarity("REQ2","RES2")) #REQ1とRES1の類似度表示
 
 input_text = """バーレーンの首都マナマ(マナーマとも)で現在開催されている
 ユネスコ(国際連合教育科学文化機関)の第42回世界遺産委員会は日本の推薦していた
@@ -19,6 +19,6 @@ input_text = """バーレーンの首都マナマ(マナーマとも)で現在�
 世界遺産に登録することを決定した。"""
 
 pro_text = application.morpheme_common.split_text(input_text).split()
-print(pro_text)
-print(both.infer_vector(pro_text))
-print(both.docvecs.most_similar([both.infer_vector(pro_text)]))
+
+print(both.infer_vector(pro_text)) #入力テキストをベクトル化したものを出力
+print(both.docvecs.most_similar([both.infer_vector(pro_text)])) #入力テキストに最も近い10個を出力
