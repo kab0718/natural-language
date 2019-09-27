@@ -56,7 +56,7 @@ def both_get_tag(lines):
 lines = text_import("tweet.txt") #テキストファイル読み込み
 
 tag_both_list = both_get_tag(lines)
-print(tag_both_list[6553])
+
 req_list, res_list = sharing(lines) #req_list[0]とres_list[0]が対応している
 tag_req_list , tag_res_list = get_tag(req_list, res_list)
 
@@ -67,6 +67,6 @@ req_model.save("req.model")
 res_model = Doc2Vec(documents=tag_res_list, vector_size=100, alpha=0.0015, window=10, min_count=1, workers=4)
 res_model.save("res.model")
 
-both_model = Doc2Vec(documents=tag_both_list, vector_size=200, alpha=0.015, window=18, mincount=1, workers=8, epochs=10)
+both_model = Doc2Vec(documents=tag_both_list, vector_size=200, alpha=0.015, window=18, mincount=1, workers=8, epochs=40)
 both_model.save("both.model")
 '''
