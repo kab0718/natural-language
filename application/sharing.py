@@ -1,25 +1,10 @@
-import MeCab
+import application.morpheme_common
 import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 
-def sharing_text(text):
-    tagger = MeCab.Tagger("-Owakati -d C:\mecab-ipadic-neologd")
-
-    tagger.parse("")    #エラー回避のために空文字をパース
-    node = tagger.parseToNode(text)     #最初のnodeを取得
-
-    words = []
-
-    while node:
-        word = node.surface     #surfaceには単語が入っている
-        words.append(word)
-        node = node.next    #次のnodeに移る
-
-    return words    #名詞だけのリストを返す
-
 message_list = [
-    ' '.join(sharing_text("高専や理系の勉強，ものづくりに興味はありませんか？函館高専では，『一日高専生』を体験できる「オープンキャンパス」を開催します。")),
-    ' '.join(sharing_text("高専でどのような勉強をしているか，体験して自分の目で確かめられるチャンスです"))
+    ' '.join(application.morpheme_common.sharing_text_noun("高専や理系の勉強，ものづくりに興味はありませんか？函館高専では，『一日高専生』を体験できる「オープンキャンパス」を開催します。")),
+    ' '.join(application.morpheme_common.sharing_text_noun("高専でどのような勉強をしているか，体験して自分の目で確かめられるチャンスです"))
 ]
 
 docs = np.array(message_list)
