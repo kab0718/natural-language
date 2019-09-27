@@ -12,10 +12,10 @@ def sharing(lines):
     for line in lines:
         if "REQ:" in line:
             line = line.split(":")[1] #REQ:を削除
-            req_list.append(application.morpheme_common.split_text(line))
+            req_list.append(application.morpheme_common.split_text(line).split())
         elif "RES:" in line:
             line = line.split(":")[1] #RES:を削除
-            res_list.append(application.morpheme_common.split_text(line))
+            res_list.append(application.morpheme_common.split_text(line).split())
     return req_list, res_list
 
 def get_tag(req_list, res_list):
@@ -41,7 +41,7 @@ def both_get_tag(lines):
     res_id = 1
     for line in lines:
         line = line.split(":")[1]
-        both_list.append(application.morpheme_common.split_text(line))
+        both_list.append(application.morpheme_common.split_text(line).split())
     for i,list in enumerate(both_list, start=1):
         if i % 2 == 1:
             both = TaggedDocument(words=list, tags=["REQ" + str(req_id)])
@@ -56,7 +56,7 @@ def both_get_tag(lines):
 lines = text_import("tweet.txt") #テキストファイル読み込み
 
 tag_both_list = both_get_tag(lines)
-
+print(tag_both_list[6553])
 req_list, res_list = sharing(lines) #req_list[0]とres_list[0]が対応している
 tag_req_list , tag_res_list = get_tag(req_list, res_list)
 
