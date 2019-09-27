@@ -66,7 +66,6 @@ req_model.save("req.model")
 
 res_model = Doc2Vec(documents=tag_res_list, vector_size=100, alpha=0.0015, window=10, min_count=1, workers=4)
 res_model.save("res.model")
-
-both_model = Doc2Vec(documents=tag_both_list, vector_size=200, alpha=0.015, window=18, mincount=1, workers=8, epochs=40)
-both_model.save("both.model")
 '''
+both_model = Doc2Vec(documents=tag_both_list, vector_size=200, alpha=0.015, window=18, mincount=1, workers=8, epochs=50)
+both_model.save("both.model")
