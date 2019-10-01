@@ -7,12 +7,10 @@ def main():
     res = Doc2Vec.load("res.model")
     both = Doc2Vec.load("both.model")
 
-    print(res.docvecs.most_similar(0)) #req.modelの中でres1と類似度が高い10件を表示
-    print(req.docvecs.most_similar(0))
-    print(both.docvecs.most_similar(0))
+    print(both.docvecs.most_similar(0)) #both.modelの中でreq1と類似度が高い10件を表示
 
     print(both.docvecs["REQ1"]) #REQ1のベクトルを表示
-    print(both.docvecs.similarity("REQ2","RES2")) #REQ1とRES1の類似度表示
+    print(both.docvecs.similarity("REQ1","RES1")) #REQ1とRES1の類似度表示
 
     input_text = """バーレーンの首都マナマ(マナーマとも)で現在開催されている
     ユネスコ(国際連合教育科学文化機関)の第42回世界遺産委員会は日本の推薦していた
@@ -20,9 +18,21 @@ def main():
     世界遺産に登録することを決定した。"""
 
     pro_text = application.morpheme_common.split_text(input_text).split()
+    vec_input = both.infer_vector(pro_text)
+    print(vec_input) #入力テキストをベクトル化したものを出力
 
-    print(both.infer_vector(pro_text)) #入力テキストをベクトル化したものを出力
-    print(both.docvecs.most_similar([both.infer_vector(pro_text)])) #入力テキストに最も近い10個を出力
+    input_similar = both.docvecs.most_similar([vec_input],topn=100)
+
+    input_similar_req = []
+    count = 0
+
+    while len(input_similar_req) != 5:
+        if "REQ" in input_similar[count][0]:    # input_similarの各要素はtupleになっている
+            input_similar_req.append(input_similar[count])
+        else:
+            pass
+        count += 1
+    print(input_similar_req)
 
 if __name__ == "__main__":
     main()
