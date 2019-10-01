@@ -33,6 +33,10 @@ def main():
             pass
         count += 1
     print(input_similar_req)
+    req_tag = input_similar_req[0][0]
+    res_tag = req_tag.replace("REQ", "RES")
+    print(res_tag)
+    print(both.docvecs[res_tag])
 
 if __name__ == "__main__":
     main()
