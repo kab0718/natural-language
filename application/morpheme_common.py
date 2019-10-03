@@ -11,7 +11,7 @@ def split_text(text):
     while node:
         word = node.surface     #surfaceには単語が入っている
         hinsi = node.feature.split(",")[0]      #featureには品詞や品詞細分類,活用形,読み方など様々な情報が入っている
-        if hinsi == "名詞" or hinsi == "動詞" or hinsi == "形容詞":
+        if hinsi != "記号":
             words.append(word)
         node = node.next    #次のnodeに移る
 

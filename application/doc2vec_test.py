@@ -3,8 +3,6 @@ import numpy as np
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 
 def main():
-    req = Doc2Vec.load("req.model")
-    res = Doc2Vec.load("res.model")
     both = Doc2Vec.load("both.model")
 
     print(both.docvecs.most_similar(0)) #both.modelの中でreq1と類似度が高い10件を表示
