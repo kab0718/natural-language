@@ -26,17 +26,17 @@ def main():
     input_similar_req = []
     count = 0
 
-    while len(input_similar_req) != 5:
+    while len(input_similar_req) != 5: #入力文章に近いベクトル上位5件を求めてる
         if "REQ" in input_similar[count][0]:    # input_similarの各要素はtupleになっている
             input_similar_req.append(input_similar[count])
         else:
             pass
         count += 1
     print(input_similar_req)
-    req_tag = input_similar_req[0][0]
-    res_tag = req_tag.replace("REQ", "RES")
+    req_tag = input_similar_req[0][0] #入力文章ベクトルに一番近い入力データのタグ
+    res_tag = req_tag.replace("REQ", "RES") #入力文章ベクトルに一番近い入力データへの返答のタグ
     print(res_tag)
-    print(both.docvecs[res_tag])
+    print(both.docvecs[res_tag]) #入力文章に一番近い入力データへの返答
 
 if __name__ == "__main__":
     main()
