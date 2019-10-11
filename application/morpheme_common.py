@@ -28,8 +28,8 @@ def sharing_text_noun(text):
     words = []
 
     while node:
-        word = node.surface     #surfaceには単語が入っている
+        word = node.surface  # surfaceには単語が入っている
         words.append(word)
-        node = node.next    #次のnodeに移る
+        node = node.next  # 次のnodeに移る
 
     return words    #名詞だけのリストを返す

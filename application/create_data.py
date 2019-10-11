@@ -1,5 +1,5 @@
 import application.morpheme_common
-import sys, re
+import re
 import codecs
 
 def file_open(file_name):
@@ -10,7 +10,7 @@ def file_open(file_name):
 
     return contents
 
-lines = file_open("sanshiro.txt")
+lines = file_open("ningen_shikkaku_syuki2.txt")
 corps = []
 for line in lines:
     text = line
@@ -20,7 +20,7 @@ for line in lines:
     text = re.sub(r'［＃.+?］', '', text)  # 入力者注削除
     corps.append(application.morpheme_common.split_text(text))
 # corpsのそれぞれの要素の末尾に改行文字追加
-with codecs.open("data.txt", "w", "utf-8") as f:
+with codecs.open("input_data.txt", "w", "utf-8") as f:
     f.write("\n".join(corps))
 
 
