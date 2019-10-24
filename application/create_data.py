@@ -28,7 +28,7 @@ def create_novel(lines):
 
 def collection_talk_million():
     corps = []
-    link = "https://millionlive.info/?北沢志保"
+    link = "https://millionlive.info/?最上静香"
     r = requests.get(link)
 
     if r.status_code == requests.codes.ok:
@@ -42,7 +42,7 @@ def collection_talk_million():
         print(len(data[15]))
         i=2
         pattern = r"「.*」"
-        while i < 95:
+        while i < 94:
             text = re.findall(pattern, data[15][i][0])
             if not text:
                 pass
@@ -50,12 +50,12 @@ def collection_talk_million():
                 corps.append(text[0])
             i += 1
 
-    with codecs.open("kitazawa_data2.txt", "w", "utf-8") as f:
+    with codecs.open("mogami_data2.txt", "w", "utf-8") as f:
         f.write("\n".join(corps))
 
 def collection_talk_theater():
     corps = []
-    link = "https://imasml-theater-wiki.gamerch.com/北沢志保"
+    link = "https://imasml-theater-wiki.gamerch.com/最上静香"
     r = requests.get(link)
 
     if r.status_code == requests.codes.ok:
@@ -76,7 +76,7 @@ def collection_talk_theater():
                 j += 1
             i += 1
 
-    with codecs.open("kitazawa_data.txt", "w", "utf-8") as f:
+    with codecs.open("mogami_data.txt", "w", "utf-8") as f:
         f.write("\n".join(corps))
 
 def create_talk(lines):
@@ -84,11 +84,12 @@ def create_talk(lines):
     for line in lines:
         corps.append(application.morpheme_common.sharing_text_noun(line))
 
-    with codecs.open("kitazawa_input_data2.txt", "w", "utf-8") as f:
+    with codecs.open("mogami_input_data2.txt", "w", "utf-8") as f:
         f.write("\n".join(corps))
 
 #create_novel(file_open("ningen_shikkaku_syuki2.txt"))
 #create_tweet(file_open("tweet.txt"))
 
-collection_talk_million()
-create_talk(file_open("kitazawa_data2.txt"))
+#collection_talk_million()
+#collection_talk_theater()
+create_talk(file_open("mogami_data2.txt"))
