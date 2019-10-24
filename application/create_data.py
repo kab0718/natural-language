@@ -26,16 +26,6 @@ def create_novel(lines):
     with codecs.open("input_data.txt", "w", "utf-8") as f:
         f.write("\n".join(corps))
 
-def create_tweet(lines):
-    corps = []
-    for line in lines:
-        text = line
-        text = text.split(":")[1]
-        corps.append(application.morpheme_common.sharing_text_noun(text))
-
-    with codecs.open("input_tweet_data.txt", "w", "utf-8") as f:
-        f.write("\n".join(corps))
-
 def collection_talk_million():
     corps = []
     link = "https://millionlive.info/?北沢志保"
@@ -92,7 +82,7 @@ def collection_talk_theater():
 def create_talk(lines):
     corps = []
     for line in lines:
-        corps.append(application.morpheme_common.split_text(line))
+        corps.append(application.morpheme_common.sharing_text_noun(line))
 
     with codecs.open("kitazawa_input_data2.txt", "w", "utf-8") as f:
         f.write("\n".join(corps))
