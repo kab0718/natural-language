@@ -30,7 +30,7 @@ def create_novel(lines):
 
 def collection_talk_million():
     corps = []
-    link = "https://millionlive.info/?最上静香"
+    link = "https://millionlive.info/?七尾百合子"
     r = requests.get(link)
 
     if r.status_code == requests.codes.ok:
@@ -52,12 +52,12 @@ def collection_talk_million():
                 corps.append(text[0])
             i += 1
 
-    with codecs.open("mogami_data2.txt", "w", "utf-8") as f:
+    with codecs.open("nanao_data2.txt", "w", "utf-8") as f:
         f.write("\n".join(corps))
 
 def collection_talk_theater():
     corps = []
-    link = "https://imasml-theater-wiki.gamerch.com/最上静香"
+    link = "https://imasml-theater-wiki.gamerch.com/七尾百合子"
     r = requests.get(link)
 
     if r.status_code == requests.codes.ok:
@@ -78,7 +78,7 @@ def collection_talk_theater():
                 j += 1
             i += 1
 
-    with codecs.open("mogami_data.txt", "w", "utf-8") as f:
+    with codecs.open("nanao_data.txt", "w", "utf-8") as f:
         f.write("\n".join(corps))
 
 def create_talk(lines):
@@ -86,15 +86,15 @@ def create_talk(lines):
     for line in lines:
         corps.append(application.morpheme_common.sharing_text_noun(line))
 
-    with codecs.open("mogami_input_data2.txt", "w", "utf-8") as f:
+    with codecs.open("nanao_input_data2.txt", "w", "utf-8") as f:
         f.write("\n".join(corps))
 
 #create_novel(file_open("ningen_shikkaku_syuki2.txt"))
 #create_tweet(file_open("tweet.txt"))
 
-#collection_talk_million()
+collection_talk_million()
 #collection_talk_theater()
-#create_talk(file_open("mogami_data2.txt"))
+#create_talk(file_open("nanao_data2.txt"))
 
 def meidai_corps(fname,data2) :
     f = open(fname, 'r', encoding="utf-8_sig")
@@ -207,4 +207,4 @@ def make_talk_meidai(lines):
         f.write("\n".join(corps))
 
 #make_corps()
-make_talk_meidai(file_open("corpus.txt"))
+#make_talk_meidai(file_open("corpus.txt"))
