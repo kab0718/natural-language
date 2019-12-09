@@ -29,8 +29,8 @@ def generate_block(corps):
     blocks = []
     for corp in corps:
         list = corp.split()
-        for i in range(len(list)-2):
-            block = list[i:i+3]    #3単語ずつのブロック作成
+        for i in range(len(list)-4):
+            block = list[i:i+5]    #3単語ずつのブロック作成
             blocks.append(block)
     return blocks
 
