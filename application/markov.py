@@ -16,9 +16,9 @@ def marking_text(contents):
     for content in contents:
         content = content.strip('\n')
         sentences.append(content)
-    content = ''.join(sentences)
-    contents = re.findall('.*?[。|？|！]', content)
-    contents = [con for con in contents if con != '']
+    content = ''.join(sentences)    #区切るために一旦リストを一行の文にしている
+    contents = re.findall('.*?[。|？|！]', content)    #。,！,？ごとに分割したリスト生成
+    contents = [con for con in contents if con != '']    #空リストを取り除く
 
     for content in contents:
         sentence = '* ' + content + '。 *'    #開始と終了の目印
