@@ -1,6 +1,7 @@
 import application.morpheme_common
 import pprint
 import random
+import re
 
 def file_open(file_name):
     test_data = open(file_name, encoding="utf_8_sig")
@@ -13,7 +14,14 @@ def file_open(file_name):
 def marking_text(contents):
     sentences = []
     for content in contents:
-        sentence = '* ' + content + '*'    #開始と終了の目印
+        content = content.strip('\n')
+        sentences.append(content)
+    content = ''.join(sentences)
+    contents = re.findall('.*?[。|？|！]', content)
+    contents = [con for con in contents if con != '']
+
+    for content in contents:
+        sentence = '* ' + content + '。 *'    #開始と終了の目印
         sentences.append(sentence)
 
     return sentences
@@ -43,7 +51,6 @@ def generate_text(blocks):
             top_blocks.append(block)
     sentences_top = top_blocks[random.randint(0, len(top_blocks) - 1)]
     sentence = ''.join(sentences_top)
-    print(sentence)
 
     while sentence[-1] != '*':
         block_last = sentence[-1]
