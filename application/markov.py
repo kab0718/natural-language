@@ -86,3 +86,4 @@ if __name__ == '__main__':
     corps = analysis(sentences)    #corpsは文章を形態素解析したもの
     blocks = generate_block(corps)    #blocksは品詞ごとに分解したものを三単語ごとのブロックに分けてあるリスト
     dict = generate_dictionary(blocks)
+    pprint.pprint(dict)
