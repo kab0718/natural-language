@@ -70,7 +70,7 @@ def generate_text(dict):
     print(text)
 
 if __name__ == '__main__':
-    contents = file_open('serif/.txt')    #contentsはテキストファイルの一行が一要素となったリスト
+    contents = file_open('serif/kitazawa_serif.txt')    #contentsはテキストファイルの一行が一要素となったリスト
     sentences = marking_text(contents)    #ひとまず文の先頭と最後に目印となる*を付与。余裕あれば一文じゃなくて。で区切る
     corps = analysis(sentences)    #corpsは文章を形態素解析したもの
     blocks = generate_block(corps)    #blocksは品詞ごとに分解したものを三単語ごとのブロックに分けてあるリスト
