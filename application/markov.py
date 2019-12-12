@@ -39,51 +39,41 @@ def generate_block(corps):
     blocks = []
     for corp in corps:
         list = corp.split()
-        for i in range(len(list)-1):
-            block = list[i:i+2]    #2単語ずつのブロック作成
+        for i in range(len(list)-2):
+            block = list[i:i+3]    #3単語ずつのブロック作成
             blocks.append(block)
     return blocks
 
 def generate_dictionary(blocks):
     dict = {}
     for block in blocks:
-        pre_word = block[0]
-        if pre_word in dict:
-            list = dict[pre_word]
+        if (block[0], block[1]) in dict:
+            list = dict[(block[0], block[1])]
         else:
             list = []
-        if block[-1] not in list:
-            list.append(block[-1])
-        dict[pre_word] = list
+        list.append(block[-1])
+        dict[(block[0], block[1])] = list
 
     return dict
 
-def generate_text(blocks):
-    top_blocks = []
-    now_blocks = []
+def generate_text(dict):
+    while True:
+        key1, key2 = random.choice(list(dict.keys()))
+        if key1 == '*' : break;
+    text = key2
 
-    for block in blocks:
-        if(block[0] == '*'):
-            top_blocks.append(block)
-    sentences_top = top_blocks[random.randint(0, len(top_blocks) - 1)]
-    sentence = ''.join(sentences_top)
-
-    while sentence[-1] != '*':
-        block_last = sentence[-1]
-        for block in blocks:
-            if(block[0] == block_last):
-                now_blocks.append(block)
-        if not now_blocks:
-            break
-        add_block = now_blocks[random.randint(0, len(now_blocks) - 1)]
-        sentence = sentence + ''.join(add_block[1:])
-    print(sentence)
-
+    while True:
+        word = random.choice(dict[(key1, key2)])
+        if word == '*': break
+        text += word
+        key1, key2 = key2, word
+    print(text)
 
 if __name__ == '__main__':
-    contents = file_open('serif/sihosizu.txt')    #contentsはテキストファイルの一行が一要素となったリスト
+    contents = file_open('serif/.txt')    #contentsはテキストファイルの一行が一要素となったリスト
     sentences = marking_text(contents)    #ひとまず文の先頭と最後に目印となる*を付与。余裕あれば一文じゃなくて。で区切る
     corps = analysis(sentences)    #corpsは文章を形態素解析したもの
     blocks = generate_block(corps)    #blocksは品詞ごとに分解したものを三単語ごとのブロックに分けてあるリスト
     dict = generate_dictionary(blocks)
-    pprint.pprint(dict)
+    for i in range(10):
+        generate_text(dict)
