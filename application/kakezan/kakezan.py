@@ -43,13 +43,6 @@ def split_text_noun(text):
     return word
 
 
-def wordcloud(text):
-    word = WordCloud(background_color="white", font_path="C:\Windows\Fonts\メイリオ", width=1024,
-                          height=674).generate(text)
-
-    word.to_file("./test.png")
-
-
 tagger = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd\\build\mecab-ipadic-2.7.0-20070801-neologd-20190808")
 corps = []
 '''
@@ -62,7 +55,7 @@ keyword = ["望月杏奈", "七尾百合子", "天海春香", "春日未来", "�
            "篠宮可憐", "周防桃子", "徳川まつり", "所恵美", "豊川風花", "中谷育", "二階堂千鶴", "萩原雪歩",
            "双海亜美", "双海真美", "星井美希", "宮尾美也", "伴田路子", "白石紬", "桜守歌織", "はるみら", "あんゆり",
            "みななお", "いくもも", "かおつむ", "ことエレ", "ことめぐ", "しずしほ", "みきつば", "みらしず", "かなしほ",
-           "はるみら", "あんゆり", "ちはしず", "みずもも", "シアターデイズ", "ミリオンライブユニット",
+           "ちはしず", "みずもも", "シアターデイズ", "ミリオンライブユニット",
            "レジェンドデイズ", "乙女ストーム!", "クレシェンドブルー", "エターナルハーモニー",
            "灼熱少女", "ミックスナッツ", "ARRIVE", "フェアリースターズ", "エンジェルスターズ", "プリンセススターズ", "Cleasky",
            "トゥインクルリズム", "EScape", "4Luxury", "閃光☆HANABI団",
@@ -101,12 +94,12 @@ uke = sys.argv[2]
 key = "百合"
 #単語のベクトルを見る
 word_vector = model.wv[key]
-print(word_vector)
+#print(word_vector)
 #keyに入った単語と類似単語を見る
 #similar_words = model.wv.most_similar(positive=[key], topn=10)
 #print(*[" ".join([v, str("{:.2f}".format(s))]) for v, s in similar_words], sep="\n") #similar_wordsはリストになっていて要素は単語と類似度の組になっている
 words = model.most_similar([word_vector], [], 15000)
-print(words)
+#print(words)
 
 for name, vector in words:
     if(seme == name):
@@ -115,6 +108,5 @@ for name, vector in words:
         uke_vec = abs(vector)
 
 result = seme_vec * uke_vec
-print(seme_vec)
-print(uke_vec)
+
 print(result)

@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 
 def sharing_text(text):
-    tagger = MeCab.Tagger("-Owakati -d C:\mecab-ipadic-neologd")
+    tagger = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd\\build\mecab-ipadic-2.7.0-20070801-neologd-20190808")
 
     tagger.parse("")    #エラー回避のために空文字をパース
     node = tagger.parseToNode(text)     #最初のnodeを取得
@@ -11,12 +11,15 @@ def sharing_text(text):
     words = []
 
     while node:
-        word = node.surface     #surfaceには単語が入っている
+        word = node     #surfaceには単語が入っている
         words.append(word)
         node = node.next    #次のnodeに移る
 
     return words    #名詞だけのリストを返す
 
+print(sharing_text("分からんかった"))
+
+'''
 message_list = [
     ' '.join(sharing_text("高専や理系の勉強，ものづくりに興味はありませんか？函館高専では，『一日高専生』を体験できる「オープンキャンパス」を開催します。")),
     ' '.join(sharing_text("高専でどのような勉強をしているか，体験して自分の目で確かめられるチャンスです"))
@@ -36,3 +39,4 @@ tfidf = TfidfTransformer(use_idf=True, norm='l2', smooth_idf=True)
 np.set_printoptions(precision=2)
 tf_idf = tfidf.fit_transform(bags)
 print(tf_idf.toarray())
+'''
