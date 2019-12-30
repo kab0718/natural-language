@@ -17,9 +17,6 @@ def sharing_text(text):
 
     return words    #名詞だけのリストを返す
 
-print(sharing_text("分からんかった"))
-
-'''
 message_list = [
     ' '.join(sharing_text("高専や理系の勉強，ものづくりに興味はありませんか？函館高専では，『一日高専生』を体験できる「オープンキャンパス」を開催します。")),
     ' '.join(sharing_text("高専でどのような勉強をしているか，体験して自分の目で確かめられるチャンスです"))
@@ -39,4 +36,3 @@ tfidf = TfidfTransformer(use_idf=True, norm='l2', smooth_idf=True)
 np.set_printoptions(precision=2)
 tf_idf = tfidf.fit_transform(bags)
 print(tf_idf.toarray())
-'''
