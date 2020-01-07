@@ -92,7 +92,7 @@ def create_talk(lines):
 #create_novel(file_open("ningen_shikkaku_syuki2.txt"))
 #create_tweet(file_open("tweet.txt"))
 
-collection_talk_million()
+#collection_talk_million()
 #collection_talk_theater()
 #create_talk(file_open("nanao_data2.txt"))
 
@@ -206,5 +206,18 @@ def make_talk_meidai(lines):
     with codecs.open("create_corpus.txt", "w", "utf-8") as f:
         f.write("\n".join(corps))
 
+def make_text():
+    file_name = "tweet.txt"
+
+    with open(file_name, encoding='utf_8_sig') as f:
+        data_lines = f.read()
+
+    data_line = re.sub(r'\([^あ-ん\u30A1-\u30F4\u2E80-\u2FDF\u3005-\u3007\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF\U00020000-\U0002EBEF]+?\)', '', data_lines)
+
+    with open(file_name, mode='w', encoding='utf_8_sig') as f:
+        f.write(data_line)
+
+
 #make_corps()
 #make_talk_meidai(file_open("corpus.txt"))
+make_text()
