@@ -1,7 +1,8 @@
 import MeCab
 
 def split_text(text):
-    tagger = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd")
+    #tagger = MeCab.Tagger("-Owakati -d C:\mecab-ipadic-neologd")
+    tagger = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd\\build\mecab-ipadic-2.7.0-20070801-neologd-20190808")
 
     tagger.parse("")    #エラー回避のために空文字をパース
     node = tagger.parseToNode(text)     #最初のnodeを取得
@@ -20,7 +21,8 @@ def split_text(text):
     return word
 
 def sharing_text_noun(text):
-    tagger = MeCab.Tagger("-Owakati -d C:\mecab-ipadic-neologd")
+    #tagger = MeCab.Tagger("-Owakati -d C:\mecab-ipadic-neologd")
+    tagger = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd\\build\mecab-ipadic-2.7.0-20070801-neologd-20190808")
 
     tagger.parse("")    #エラー回避のために空文字をパース
     node = tagger.parseToNode(text)     #最初のnodeを取得
