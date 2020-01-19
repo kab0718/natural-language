@@ -47,10 +47,7 @@ def generate_block(corps):
 def generate_dictionary(blocks):
     dict = {}
     for block in blocks:
-        if (block[0], block[1]) in dict:
-            list = dict[(block[0], block[1])]
-        else:
-            list = []
+        list = dict[(block[0], block[1])] if (block[0], block[1]) in dict else []
         list.append(block[-1])
         dict[(block[0], block[1])] = list
 
@@ -59,7 +56,7 @@ def generate_dictionary(blocks):
 def generate_text(dict):
     while True:
         key1, key2 = random.choice(list(dict.keys()))
-        if key1 == '*' : break;
+        if key1 == '*' : break
     text = key2
 
     while True:
@@ -67,13 +64,34 @@ def generate_text(dict):
         if word == '*': break
         text += word
         key1, key2 = key2, word
+
+    if len(text) > 50:
+        text = generate_text(dict)
+
+    return text
+
+def return_text(input_text, dict):
+    noun = create_noun_list(input_text)
+    if noun == None: return 'そうなんだ'
+
+    list_dict = list(dict)
+    list_tup = []
+    for tup in list_dict:
+        if noun in tup:
+            list_tup.append(tup)
+    if len(list_tup) == 0: return 'そうなんだ'
+
+    key = random.choice(list_tup)
+    back_text = generate_back_text(key) if key[1] != '*' else ''
+    front_text = generate_front_text(dict, key) if key[0] != '*' else ''
+    text = front_text + back_text
+    if '*' in text:
+        text = text.replace('*', '')
+
     print(text)
 
-def return_text(input_text):
-    noun = create_noun_list(input_text)
-
 def create_noun_list(input_text):
-    tagger = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd")
+    tagger = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd\\build\mecab-ipadic-2.7.0-20070801-neologd-20190808")
     node = tagger.parseToNode(input_text)  # 最初のnodeを取得
 
     nouns = []
@@ -87,20 +105,64 @@ def create_noun_list(input_text):
         if hinsi == "名詞" and (hinsi_detail == '一般' or hinsi_detail == '固有名詞'):
             nouns.append(word)
         node = node.next  # 次のnodeに移る)
-    print(nouns)
+
     if len(nouns) != 0:
         noun = random.choice(nouns)
 
     return noun
 
+def generate_back_text(key):
+    key1, key2 = key
+    text = key1 + key2
+
+    while True:
+        word = random.choice(dict[(key1, key2)])
+        if word == '*': break
+        text += word
+        key1, key2 = key2, word
+
+    if len(text) > 30:
+        text = generate_back_text(key)
+
+
+    return text
+
+def generate_front_text(dict, key):
+    text = ''
+    items = list(dict.items())
+    key_sub = key
+
+    while True:
+        keys_list = []
+        key1 = key[0]
+
+        for mykey, myvalue in items:
+            if key1 in myvalue:
+                keys_list.append(mykey)
+
+        if len(keys_list) != 0:
+            key = random.choice(keys_list)
+
+        text = ''.join(key) + text
+        if key[0] == '*':
+            text = text.replace('*', '')
+            break
+
+    if len(text) > 30:
+        text = generate_front_text(dict, key_sub)
+
+    return text
+
+
 if __name__ == '__main__':
-    contents = file_open('serif/kitazawa_serif.txt')    #contentsはテキストファイルの一行が一要素となったリスト
+    contents = file_open('tweet.txt')    #contentsはテキストファイルの一行が一要素となったリスト
     sentences = marking_text(contents)    #ひとまず文の先頭と最後に目印となる*を付与。余裕あれば一文じゃなくて。で区切る
     corps = analysis(sentences)    #corpsは文章を形態素解析したもの
     blocks = generate_block(corps)    #blocksは品詞ごとに分解したものを三単語ごとのブロックに分けてあるリスト
     dict = generate_dictionary(blocks)
-    #for i in range(10):
-        #generate_text(dict)
+    #for i in range(20):
+        #text = generate_text(dict)
 
-    input_text = '偽として評価されるものは他にもあるので注意してください'
-    return_text(input_text)
+    input_text = '花火大会に向けて住人たちと交流を深めます'
+    re_text = return_text(input_text, dict)
+    print(re_text)
