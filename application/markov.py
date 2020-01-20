@@ -3,6 +3,7 @@ import pprint
 import random
 import re
 import MeCab
+import json
 
 def file_open(file_name):
     test_data = open(file_name, encoding="utf_8_sig")
@@ -165,6 +166,20 @@ def generate_dic_tweet(dict):
     with open('tweet_dic.txt', 'w', encoding='utf-8') as write_file:
         write_file.writelines(tweet_dic)
 
+def create_json(dict):
+    keys = list(dict.keys())
+
+    for key in keys:
+        tup = '(\'' + '\', \''.join(key) + '\')'
+        dict[tup] = dict[key]
+        del dict[key]
+
+    #json_str = json.dumps(dict, indent=4, ensure_ascii=False)
+    #print(json_str)
+
+    with open('tweet.json', 'w', encoding = 'utf-8') as f:
+        json.dump(dict, f, indent=4, ensure_ascii=False)
+
 if __name__ == '__main__':
     contents = file_open('tweet.txt')    #contentsはテキストファイルの一行が一要素となったリスト
     #sentences = marking_text(contents)    #ひとまず文の先頭と最後に目印となる*を付与。余裕あれば一文じゃなくて。で区切る
@@ -172,7 +187,9 @@ if __name__ == '__main__':
     blocks = generate_block(corps)    #blocksは品詞ごとに分解したものを三単語ごとのブロックに分けてあるリスト
     dict = generate_dictionary(blocks)
 
-    generate_dic_tweet(dict)
+    #generate_dic_tweet(dict)
+    create_json(dict)
+
     #for i in range(20):
         #text = generate_text(dict)
 
