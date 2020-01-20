@@ -91,7 +91,8 @@ def return_text(input_text, dict):
     print(text)
 
 def create_noun_list(input_text):
-    tagger = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd\\build\mecab-ipadic-2.7.0-20070801-neologd-20190808")
+    tagger = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd")
+    #tagger = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd\\build\mecab-ipadic-2.7.0-20070801-neologd-20190808")
     node = tagger.parseToNode(input_text)  # 最初のnodeを取得
 
     nouns = []
@@ -170,6 +171,7 @@ if __name__ == '__main__':
     corps = analysis(contents)    #corpsは文章を形態素解析したもの
     blocks = generate_block(corps)    #blocksは品詞ごとに分解したものを三単語ごとのブロックに分けてあるリスト
     dict = generate_dictionary(blocks)
+
     generate_dic_tweet(dict)
     #for i in range(20):
         #text = generate_text(dict)
