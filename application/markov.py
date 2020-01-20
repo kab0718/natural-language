@@ -94,13 +94,13 @@ def create_noun_list(input_text):
     return noun
 
 if __name__ == '__main__':
-    contents = file_open('serif/kitazawa_serif.txt')    #contentsはテキストファイルの一行が一要素となったリスト
+    contents = file_open('tweet.txt')    #contentsはテキストファイルの一行が一要素となったリスト
     sentences = marking_text(contents)    #ひとまず文の先頭と最後に目印となる*を付与。余裕あれば一文じゃなくて。で区切る
     corps = analysis(sentences)    #corpsは文章を形態素解析したもの
     blocks = generate_block(corps)    #blocksは品詞ごとに分解したものを三単語ごとのブロックに分けてあるリスト
     dict = generate_dictionary(blocks)
-    #for i in range(10):
-        #generate_text(dict)
+    for i in range(20):
+        generate_text(dict)
 
-    input_text = '偽として評価されるものは他にもあるので注意してください'
-    return_text(input_text)
+    #input_text = '偽として評価されるものは他にもあるので注意してください'
+    #return_text(input_text)
