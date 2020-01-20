@@ -153,16 +153,27 @@ def generate_front_text(dict, key):
 
     return text
 
+def generate_dic_tweet(dict):
+    items = list(dict.items())
+    tweet_dic = []
+
+    for item in items:
+        tup = '(\'' + '\', \''.join(item[0]) + '\')'
+        tweet_dic.append(tup + ', [\'' + '\', \''.join(item[1]) + '\']\n')
+
+    with open('tweet_dic.txt', 'w', encoding='utf-8') as write_file:
+        write_file.writelines(tweet_dic)
 
 if __name__ == '__main__':
     contents = file_open('tweet.txt')    #contentsはテキストファイルの一行が一要素となったリスト
-    sentences = marking_text(contents)    #ひとまず文の先頭と最後に目印となる*を付与。余裕あれば一文じゃなくて。で区切る
-    corps = analysis(sentences)    #corpsは文章を形態素解析したもの
+    #sentences = marking_text(contents)    #ひとまず文の先頭と最後に目印となる*を付与。余裕あれば一文じゃなくて。で区切る
+    corps = analysis(contents)    #corpsは文章を形態素解析したもの
     blocks = generate_block(corps)    #blocksは品詞ごとに分解したものを三単語ごとのブロックに分けてあるリスト
     dict = generate_dictionary(blocks)
+    generate_dic_tweet(dict)
     #for i in range(20):
         #text = generate_text(dict)
 
-    input_text = '花火大会に向けて住人たちと交流を深めます'
-    re_text = return_text(input_text, dict)
-    print(re_text)
+    #input_text = '花火大会に向けて住人たちと交流を深めます'
+    #re_text = return_text(input_text, dict)
+    #print(re_text)
