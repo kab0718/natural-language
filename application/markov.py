@@ -40,31 +40,31 @@ def generate_block(corps):
     blocks = []
     for corp in corps:
         list = corp.split()
-        for i in range(len(list)-2):
-            block = list[i:i+3]    #3単語ずつのブロック作成
+        for i in range(len(list)-3):
+            block = list[i:i+4]    #3単語ずつのブロック作成
             blocks.append(block)
     return blocks
 
 def generate_dictionary(blocks):
     dict = {}
     for block in blocks:
-        list = dict[(block[0], block[1])] if (block[0], block[1]) in dict else []
+        list = dict[(block[0], block[1], block[2])] if (block[0], block[1], block[2]) in dict else []
         list.append(block[-1])
-        dict[(block[0], block[1])] = list
+        dict[(block[0], block[1], block[2])] = list
 
     return dict
 
 def generate_text(dict):
     while True:
-        key1, key2 = random.choice(list(dict.keys()))
+        key1, key2, key3 = random.choice(list(dict.keys()))
         if key1 == '*' : break
-    text = key2
+    text = key2 + key3
 
     while True:
-        word = random.choice(dict[(key1, key2)])
-        if word == '*': break
+        word = random.choice(dict[(key1, key2, key3)])
+        if word == '*' or word == '。*' or word == '！*': break
         text += word
-        key1, key2 = key2, word
+        key1, key2, key3 = key2, key3, word
 
     if len(text) > 50:
         text = generate_text(dict)
@@ -83,7 +83,7 @@ def return_text(input_text, dict):
     if len(list_tup) == 0: return 'そうなんだ'
 
     key = random.choice(list_tup)
-    back_text = generate_back_text(key) if key[1] != '*' else ''
+    back_text = generate_back_text(key) if key[-1] != '*' else ''
     front_text = generate_front_text(dict, key) if key[0] != '*' else ''
     text = front_text + back_text
     if '*' in text:
@@ -92,8 +92,8 @@ def return_text(input_text, dict):
     print(text)
 
 def create_noun_list(input_text):
-    tagger = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd")
-    #tagger = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd\\build\mecab-ipadic-2.7.0-20070801-neologd-20190808")
+    #tagger = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd")
+    tagger = MeCab.Tagger("-Ochasen -d C:\mecab-ipadic-neologd\\build\mecab-ipadic-2.7.0-20070801-neologd-20190808")
     node = tagger.parseToNode(input_text)  # 最初のnodeを取得
 
     nouns = []
@@ -114,18 +114,17 @@ def create_noun_list(input_text):
     return noun
 
 def generate_back_text(key):
-    key1, key2 = key
-    text = key1 + key2
+    key1, key2, key3 = key
+    text = key1 + key2 + key3
 
     while True:
-        word = random.choice(dict[(key1, key2)])
+        word = random.choice(dict[(key1, key2, key3)])
         if word == '*': break
         text += word
-        key1, key2 = key2, word
+        key1, key2, key3 = key2, key3, word
 
     if len(text) > 30:
         text = generate_back_text(key)
-
 
     return text
 
@@ -188,11 +187,12 @@ if __name__ == '__main__':
     dict = generate_dictionary(blocks)
 
     #generate_dic_tweet(dict)
-    create_json(dict)
+    #create_json(dict)
 
-    #for i in range(20):
-        #text = generate_text(dict)
+    for i in range(10):
+        text = generate_text(dict)
+        print(text)
 
-    #input_text = '花火大会に向けて住人たちと交流を深めます'
+    #input_text = '今日は天気が良いですね'
     #re_text = return_text(input_text, dict)
     #print(re_text)
